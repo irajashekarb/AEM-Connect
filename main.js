@@ -35,26 +35,26 @@ let dialog;
 dialog = 
     
 h("dialog",
-        h("style", `
-            dialog  
-            {
-                    background: white;
-            }`
-        ),
         // Main Form
-        h("form", { method: "dialog", style: { width: 400}},
+        h("form", { method: "dialog", style: { width: 400 } },
             // Form Header
             h("header",
-                h("h1", { textContent: "AEM Connect"}),
+                h( "h1", "AEM Connect" ),
                 h("img", { src: "./images/aemiconexlarge.png", width: 40, height: 40})
             ),
-            <hr/>
+            // Horizontal Rule
+            h("hr"),
             // Login Label
             h("label",
-                h("span",
-                    h("label", { textContent: "LogIn"})
-                )
-            ), 
+                h("span","Log In"),
+                h("input",{ placeholder : "Email address"})
+            ),
+            // Password Label
+            h("label",
+                h("span", "Password"),
+                h("input", { placeholder : "Password"})
+            ),
+            // Footer for buttons
             h("footer",
                 h("button", {uxpVariant: "cta", type: "submit", onclick(e) { e.preventDefault() } },"Log in"),
                 h("button", { uxpVariant: "primary", onclick(e) { dialog.close() } }, "Cancel")  
@@ -73,7 +73,6 @@ module.exports = {
     commands: {
         menuCommand: function()
         {
-            // document.body.appendChild(getDialog()).showModal();
             dialog.showModal();
         }
         //myPluginCommand: myPluginCommand

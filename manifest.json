@@ -20,7 +20,7 @@
          "type":"menu",
          "label":"AEM Connect",
          "commandId":"menuCommand",
-         "shortcut": { "win" : "Ctrl+Shift+E", "mac" : "Cmd+Shift+E" }  
+         "shortcut": { "win" : "Ctrl+Shift+E" }
       }
    ]
 }
