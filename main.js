@@ -1,23 +1,57 @@
-// Constant variables for alert and error functions imported from LIB
-const { alert, error } = require("./lib/dialogs.js");
-
-// Function for showing alert
-async function showAlert()
-{
-    await alert("Connect to the Internet", 
-    "In order to function correctly, this plugin requires access to the Internet. Please connect to a network that has Internet access."); 
+/**
+* Shorthand for creating Elements.
+* @param {*} tag The tag name of the element.
+* @param {*} [props] Optional props.
+* @param {*} children Child elements or strings
+*/
+function h(tag, props, ...children) {
+    let element = document.createElement(tag);
+    if (props) {
+        if (props.nodeType || typeof props !== "object") {
+            children.unshift(props);
+        }
+        else {
+            for (let name in props) {
+                let value = props[name];
+                if (name == "style") {
+                    Object.assign(element.style, value);
+                }
+                else {
+                    element.setAttribute(name, value);
+                    element[name] = value;
+                }
+            }
+        }
+    }
+    for (let child of children) {
+        element.appendChild(typeof child === "object" ? child : document.createTextNode(child));
+    }
+    return element;
 }
 
-// Function for showing error
-async function showError()
-{
-    await error("Synchronization Failed",
-    "Failed to synchronize all your changes with our server. Some changes may have been lost.",
-    "Steps you can take:",
-    "* Save your document",
-    "* Check your network connection",
-    "* Try again in a few minutes"); 
-}
+// Modal Dialog Constant
+let dialog;
+
+dialog = 
+    h("dialog",
+        h("style", `
+            dialog  {
+                    background: white;
+            }`),
+        h("form", { method: "dialog", style: { width: 400}},
+            h("header",
+                h("h1", { textContent: "AEM Connect"}),
+                h("img", { src: "./images/aemiconexlarge.png", width: 40, height: 40})
+            ),
+            
+            h("footer",
+                h("button", {uxpVariant: "cta", type: "submit", onclick(e) { e.preventDefault() } },"Log in"),
+                h("button", { uxpVariant: "primary", onclick(e) { dialog.close() } }, "Cancel")  
+            )
+        )
+    )
+
+document.body.appendChild(dialog);
 
 // Main Handler Function
 function myPluginCommand(selection) {
@@ -26,8 +60,11 @@ function myPluginCommand(selection) {
 
 module.exports = {
     commands: {
-        myPluginCommand: myPluginCommand,
-                         showAlert,
-                         showError
+        menuCommand: function()
+        {
+            // document.body.appendChild(getDialog()).showModal();
+            dialog.showModal();
+        }
+        //myPluginCommand: myPluginCommand
     }
 };

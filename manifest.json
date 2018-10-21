@@ -1,6 +1,7 @@
 {
    "name": "AEM Connect",
    "id": "ab6a038b",
+   "author": "Raja Shekar",
    "version":"1.0.0",
    "description":"The AEM Connect plugin allows you to build beautiful design with the relevant dummy data pulled out from your Adobe Experience Manager without ever leaving Adobe XD.",
    "icons":[
@@ -18,18 +19,8 @@
       {
          "type":"menu",
          "label":"AEM Connect",
-         "commandId":"myPluginCommand",
+         "commandId":"menuCommand",
          "shortcut": { "win" : "Ctrl+Shift+E", "mac" : "Cmd+Shift+E" }  
-      },
-      {
-        "type": "menu   ",
-        "label": "Show Alert",
-        "commandId": "showAlert"
-      },
-      {
-        "type": "menu",
-        "label": "Show Error",
-        "commandId": "showError"
       }
    ]
 }
