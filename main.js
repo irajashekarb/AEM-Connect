@@ -36,35 +36,35 @@ dialog =
     
 h("dialog",
         // Main Form
-        h("form", { method: "dialog", style: { width: 400 } },
-            // Form Header
-            h("header",
-                h( "h1", "AEM Connect" ),
-                h("img", { src: "./aemiconexlarge.png", width: 40, height: 40})
-            ),
-            // Horizontal Rule
-            h("hr"),
-            // url Label
-            h("label",
-                h("span","Url"),
-                h("input", { placeholder : "AEM url"})
-            ),
-            // Login Label
-            h("label",
-                h("span","Log In"),
-                h("input",{ placeholder : "Email address"})
-            ),
-            // Password Label
-            h("label",
-                h("span", "Password"),
-                h("input", { placeholder : "Password"})
-            ),
-            // Footer for buttons
-            h("footer",
-                h("button", {uxpVariant: "cta", type: "submit", onclick(e) { e.preventDefault() } },"Log in"),
-                h("button", { uxpVariant: "primary", onclick(e) { dialog.close() } }, "Cancel")  
-            )
+    h("form", { method: "dialog", style: { width: 400 } },
+        // Form Header
+        h("header",
+            h( "h1", "AEM Connect"),
+            h("img", { src: "./aemiconexlarge.png", width: 40, height: 40})
+        ),
+        // Horizontal Rule
+        h("hr",{ class : "small"} ),
+        // url Label
+        h("label",
+            h("span","Url"),
+            h("input", { placeholder : "AEM url"})
+        ),
+        // Login Label
+        h("label",
+            h("span","Log In"),
+            h("input",{ placeholder : "Email address"})
+        ),
+        // Password Label
+        h("label",
+            h("span", "Password"),
+            h("input",{  placeholder : "Password"})
+        ),
+        // Footer for buttons
+        h("footer",
+            h("button", { uxpVariant: "cta", type: "submit", onclick(e) { e.preventDefault() } },"Log in"),
+            h("button", { uxpVariant: "primary", onclick(e) { dialog.close() } }, "Cancel")  
         )
+    )
 )
 
 document.body.appendChild(dialog);
