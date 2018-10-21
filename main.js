@@ -40,10 +40,15 @@ h("dialog",
             // Form Header
             h("header",
                 h( "h1", "AEM Connect" ),
-                h("img", { src: "./images/aemiconexlarge.png", width: 40, height: 40})
+                h("img", { src: "./aemiconexlarge.png", width: 40, height: 40})
             ),
             // Horizontal Rule
             h("hr"),
+            // url Label
+            h("label",
+                h("span","Url"),
+                h("input", { placeholder : "AEM url"})
+            ),
             // Login Label
             h("label",
                 h("span","Log In"),
