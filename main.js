@@ -33,23 +33,34 @@ function h(tag, props, ...children) {
 let dialog;
 
 dialog = 
-    h("dialog",
+    
+h("dialog",
         h("style", `
-            dialog  {
+            dialog  
+            {
                     background: white;
-            }`),
+            }`
+        ),
+        // Main Form
         h("form", { method: "dialog", style: { width: 400}},
+            // Form Header
             h("header",
                 h("h1", { textContent: "AEM Connect"}),
                 h("img", { src: "./images/aemiconexlarge.png", width: 40, height: 40})
             ),
-            
+            <hr/>
+            // Login Label
+            h("label",
+                h("span",
+                    h("label", { textContent: "LogIn"})
+                )
+            ), 
             h("footer",
                 h("button", {uxpVariant: "cta", type: "submit", onclick(e) { e.preventDefault() } },"Log in"),
                 h("button", { uxpVariant: "primary", onclick(e) { dialog.close() } }, "Cancel")  
             )
         )
-    )
+)
 
 document.body.appendChild(dialog);
 
