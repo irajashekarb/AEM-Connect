@@ -29,6 +29,7 @@ function h(tag, props, ...children) {
     return element;
 }
 
+
 // Modal Dialog Constant
 let dialog;
 
@@ -39,30 +40,30 @@ h("dialog",
     h("form", { method: "dialog", style: { width: 400 } },
         // Form Header
         h("header",
-            h( "h1", "AEM Connect"),
-            h("img", { src: "./aemiconexlarge.png", width: 40, height: 40})
+            h("img", { src: "./aemiconexlarge.png", width: 40, height: 40 , class: "icon"} ),
+            h( "h1", "AEM Connect")
         ),
         // Horizontal Rule
         h("hr",{ class : "small"} ),
         // url Label
         h("label",
-            h("span","Url"),
-            h("input", { placeholder : "AEM url"})
+            h("span","URL"),
+            h("input")
         ),
         // Login Label
         h("label",
             h("span","Log In"),
-            h("input",{ placeholder : "Email address"})
+            h("input")
         ),
         // Password Label
         h("label",
             h("span", "Password"),
-            h("input",{  placeholder : "Password"})
+            h("input")
         ),
         // Footer for buttons
         h("footer",
             h("button", { uxpVariant: "cta", type: "submit", onclick(e) { e.preventDefault() } },"Log in"),
-            h("button", { uxpVariant: "primary", onclick(e) { dialog.close() } }, "Cancel")  
+            h("button", { uxpVariant: "primary", onclick(e) { dialog.close() } }, "Cancel")
         )
     )
 )
